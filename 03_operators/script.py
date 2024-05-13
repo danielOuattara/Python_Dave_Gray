@@ -18,4 +18,4 @@ else:
     print("Lower")
 
 # ternary equivalent
-print("Greater than 10") if quantity > 10  else print("Lower than 10")
+print("Greater than 10") if quantity > 10 else print("Lower than 10")
