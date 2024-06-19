@@ -9,7 +9,7 @@ Python divides the operators in the following groups:
      > Bitwise operators
 """
 
-quantity = 42
+quantity: int = 42
 print("")
 
 if quantity > 10:
