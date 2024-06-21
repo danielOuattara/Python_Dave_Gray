@@ -40,8 +40,8 @@ print(total_2)
 
 #  --------- (09:13) Refactor RPS to a function
 
-""" see rps_script.py """
+""" see rps_script_15.py """
 
 #  --------- (11:03) Refactor RPS to a recursive function
 
-""" see rps_script.py """
+""" see rps_script_15.py """
