@@ -1,6 +1,5 @@
-import random
 from enum import Enum
-
+import random
 
 def rps_game():
     game_count = 0
