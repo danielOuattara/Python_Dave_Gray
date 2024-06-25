@@ -8,7 +8,7 @@
 - [x] (03:40) .gitignore and .env files
 - [x] (06:48) static and templates
 - [x] (12:51) Create the weather module
-- [ ] (18:14) Getting started with Flask
+- [x] (18:14) Getting started with Flask
 - [ ] (21:57) Switching to a production server
 - [ ] (23:15) Weather Results template
 - [ ] (31:03) Running the app
