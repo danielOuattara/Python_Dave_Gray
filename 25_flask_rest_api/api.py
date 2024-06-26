@@ -20,9 +20,26 @@ class UserModel(db.Model):
 
 user_args = reqparse.RequestParser()
 user_args.add_argument('name', type=str, required=True,
-                       hel='Name cannot be blank')
+                       help='Name cannot be blank')
 user_args.add_argument('email', type=str, required=True,
-                       hel='Email cannot be blank')
+                       help='Email cannot be blank')
+
+
+userFields = {
+    'id': fields.Integer,
+    'name': fields.String,
+    'email': fields.String,
+}
+
+
+class Users(Resource):
+    @marshal_with(userFields)
+    def get(self):
+        users = UserModel.query.all()
+        return users
+
+
+api.add_resource(Users, '/api/users/')
 
 
 @app.route('/')
