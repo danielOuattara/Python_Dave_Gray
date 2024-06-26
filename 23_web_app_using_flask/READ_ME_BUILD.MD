@@ -12,5 +12,5 @@
 - [x] (21:57) Switching to a production server
 - [x] (23:15) Weather Results template
 - [x] (31:03) Running the app
-- [ ] (33:08) Handling unexpected input
+- [x] (33:08) Handling unexpected input
 - [ ] (43:32) Deploying the app to the web

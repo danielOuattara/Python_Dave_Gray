@@ -13,28 +13,29 @@ def index():
 
 @app.route('/weather')
 def get_weather():
-    city = request.args.get('city')
-    if not bool(city.strip()):
-        city = 'London'
+    city = request.args.get('city', '').strip() or 'London'
 
     weather_data = get_current_weather(city)
-    # city is 404
-    if weather_data['cod'] != 200:
+
+    if weather_data.get('cod') != 200:
         return render_template("not-found.html", city=city)
     else:
         return render_template(
             "weather.html",
-            title=weather_data["name"],
-            status=weather_data["weather"][0]["description"],
-            temp=f'{weather_data["main"]["temp"]:.1f}',
-            feels_like=f'{weather_data["main"]["feels_like"]:.1f}')
+            title=weather_data.get("name", "Unknown City"),
+            status=weather_data["weather"][0]["description"] if weather_data.get(
+                "weather") else "No data",
+            temp=f'{weather_data["main"]["temp"]:.1f}' if weather_data.get(
+                "main") else "N/A",
+            feels_like=f'{weather_data["main"]["feels_like"]:.1f}' if weather_data.get(
+                "main") else "N/A"
+        )
 
-
-"""Using development server :"""
+# Using development server
 # if __name__ == '__main__':
 #     app.run(debug=True, host="0.0.0.0", port=8000)
 
 
-"""Using production server :"""
+# Using production server
 if __name__ == '__main__':
     serve(app, host="0.0.0.0", port=8000)
