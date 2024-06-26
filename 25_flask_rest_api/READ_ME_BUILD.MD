@@ -7,8 +7,8 @@
 - [x] (03:07) REST API Diagram
 - [x] (04:27) Virtual Environment set up
 - [x] (07:19) Install Dependencies
-- [ ] (09:56) A Simple REST API
-- [ ] (12:38) Modeling Data & Creating the Database
+- [x] (09:56) A Simple REST API
+- [x] (12:38) Modeling Data & Creating the Database
 - [ ] (17:19) Flask Restful
 - [ ] (18:26) Define args with RequestParser
 - [ ] (19:51) /api/users Resource Endpoint
