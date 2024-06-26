@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     print('\n*** Get Current Weather ***')
     city = input('\n Please enter a city name: ')
-    weather_data = get_current_weather(city)
-    pprint(weather_data)
+    data = get_current_weather(city)
+    pprint(data)
     print(
-        f'\n--- Current Weather for {weather_data["name"]} ---\nTemperature {weather_data["main"]["temp"]}, feels like {weather_data["main"]["feels_like"]}\n {weather_data["weather"][0]["description"]}')
+        f'\n--- Current Weather for {data["name"]} ---\nTemperature {data["main"]["temp"]}, feels like {data["main"]["feels_like"]}\n {data["weather"][0]["description"]}')

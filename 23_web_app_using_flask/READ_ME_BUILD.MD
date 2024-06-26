@@ -9,8 +9,8 @@
 - [x] (06:48) static and templates
 - [x] (12:51) Create the weather module
 - [x] (18:14) Getting started with Flask
-- [ ] (21:57) Switching to a production server
-- [ ] (23:15) Weather Results template
-- [ ] (31:03) Running the app
+- [x] (21:57) Switching to a production server
+- [x] (23:15) Weather Results template
+- [x] (31:03) Running the app
 - [ ] (33:08) Handling unexpected input
 - [ ] (43:32) Deploying the app to the web
