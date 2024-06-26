@@ -1,10 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_restful import Resource, Api, reqparse, fields, marshal_with, abort
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
+api = Api(app)
 
 
 class UserModel(db.Model):
@@ -14,6 +16,13 @@ class UserModel(db.Model):
 
     def __repr__(self):
         return f'User(name = {self.name}, email = {self.email})'
+
+
+user_args = reqparse.RequestParser()
+user_args.add_argument('name', type=str, required=True,
+                       hel='Name cannot be blank')
+user_args.add_argument('email', type=str, required=True,
+                       hel='Email cannot be blank')
 
 
 @app.route('/')
