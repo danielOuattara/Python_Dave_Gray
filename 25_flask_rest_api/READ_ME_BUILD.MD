@@ -404,3 +404,38 @@ api.add_resource(User, '/api/users/<int:id>') # New!
 - check ofr valid id, invalid id, valid but not existing user
 
 ##   (33:22) Update & Delete Data
+
+- update the `User` class as follow:
+  
+```py
+class User(Resource):
+    @marshal_with(userFields)
+    def get(self, id):
+        user = UserModel.query.filter_by(id=id).first()
+        if not user:
+            abort(404, message="User not found")
+        return user
+
+    @marshal_with(userFields)
+    def patch(self, id):
+        user = UserModel.query.filter_by(id=id).first()
+        if not user:
+            abort(404, message="User not found")
+        args = user_args.parse_args()
+        user.name = args['name']
+        user.email = args['email']
+        db.session.commit()
+        return user
+
+    @marshal_with(userFields)
+    def delete(self, id):
+        user = UserModel.query.filter_by(id=id).first()
+        if not user:
+            abort(404, message="User not found")
+        db.session.delete(user)
+        db.session.commit()
+        users = UserModel.query.all()
+        return users, 200
+```
+
+- then run test using Thunder client to confirm code logic effectiveness
