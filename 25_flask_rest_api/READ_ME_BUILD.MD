@@ -384,4 +384,23 @@ def post(self):
 
 ##   (30:17) /api/users/id Resource Endpoint
 
+- update the `api.py` as follow:
+
+```py
+# New!
+class User(Resource):
+    @marshal_with(userFields)
+    def get(self, id):
+        user = UserModel.query.filter_by(id=id).first()
+        if not user:
+            abort(404, message="User not found")
+        return user
+
+
+api.add_resource(Users, '/api/users/')
+api.add_resource(User, '/api/users/<int:id>') # New!
+```
+
+- check ofr valid id, invalid id, valid but not existing user
+
 ##   (33:22) Update & Delete Data
