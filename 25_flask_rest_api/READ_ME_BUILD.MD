@@ -8,9 +8,17 @@
 
 ## (00:53) What is REST? What is an API?
 
+(<https://developer.mozilla.org/en-US/docs/Glossary/REST>)
+
+(<https://developer.mozilla.org/en-US/docs/Glossary/API>)
+
 ## (03:07) REST API Diagram
 
+![image of REST API logic](rest-api.jpg)
+
 ## (04:27) Virtual Environment set up
+
+DONE
 
 ## (07:19) Install Dependencies
 
@@ -131,7 +139,12 @@ from api import app, db
 
 with app.app_context():
     db.create_all()
+```
 
+run the following command to create the database:
+
+```bash
+python3 create_db.py
 ```
 
 ##   (17:19) Flask Restful
@@ -192,9 +205,9 @@ class UserModel(db.Model):
 
 user_args = reqparse.RequestParser()
 user_args.add_argument('name', type=str, required=True,
-                       hel='Name cannot be blank')
+                       help='Name cannot be blank')
 user_args.add_argument('email', type=str, required=True,
-                       hel='Email cannot be blank')
+                       help='Email cannot be blank')
 
 
 @app.route('/')
@@ -315,6 +328,59 @@ if __name__ == '__main__':
 ```
 
 ##   (24:00) POST Data
+
+- update the User class as follow:
+
+```py
+class Users(Resource):
+@marshal_with(userFields)
+def get(self):
+    users = UserModel.query.all()
+    return users
+
+@marshal_with(userFields)
+def post(self):
+    args = user_args.parse_args()
+    user = UserModel(name=args['name'], email=args['email'])
+    db.session.add(user)
+    db.session.commit()
+    users = UserModel.query.all()
+    return users, 201
+```
+
+- using Thunder Client or equivalent
+- create a request `POST http://127.0.0.1:5000/api/users/` with following json data
+  
+```json
+{
+  "name": "John Doe",
+  "email": "john_doe@email.com"
+}
+
+{
+  "name": "Ervin Loretnz",
+  "email": "ervin@lorentz.com"
+}
+
+{
+
+  "name": "Mike Tyson",
+  "email": "mike@tyson.com"
+}
+```
+
+- also test for bad data, etc....
+
+```json
+{
+  "name": "",
+  "email": "ervin@lorentz.com"
+}
+
+{
+  "name": "Mike Tyson"
+}
+```
 
 ##   (30:17) /api/users/id Resource Endpoint
 
