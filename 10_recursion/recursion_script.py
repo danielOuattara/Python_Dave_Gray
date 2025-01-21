@@ -7,14 +7,15 @@
 
 def add_one(num):
     if num >= 9:
-        return num
+        return num + 1
 
     total = num + 1
     print(f"num = {num}, total = {total}")
     return add_one(total)
 
 
-add_one(0)
+my_total = add_one(0)
+print(f'\nmy_total = {my_total}\n')
 
 print('-----------')  # (02:45) Return the Recursive Function Call
 

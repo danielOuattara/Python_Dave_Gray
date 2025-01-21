@@ -8,6 +8,7 @@ while value:
     print(value)
     value = 0
 
+
 value = "y"
 count = 0
 
