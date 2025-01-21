@@ -2,11 +2,11 @@
 
 my_tuple = tuple(('Dave', 42, True))
 print('my_tuple = ', my_tuple)
-print('type(my_tuple', type(my_tuple))  # <class 'tuple'>
+print('type(my_tuple) = ', type(my_tuple))  # <class 'tuple'>
 
 my_tuple_2 = ('Dave', 42, True)
 print('my_tuple_2 = ', my_tuple_2)
-print('type(my_tuple_2', type(my_tuple_2))  # <class 'tuple'>
+print('type(my_tuple_2) = ', type(my_tuple_2))  # <class 'tuple'>
 
 #  If you do need to change a tuple
 

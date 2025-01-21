@@ -1,3 +1,5 @@
+"""Lists in Python"""
+
 #  What are lists ?
 
 users = ['Dave', 'John', 'Sara']
@@ -35,7 +37,9 @@ print('len(data) = ', len(data))
 users.append('Elsa')
 print('users = ', users)
 
-users += ['Jason']  # caution: appending/extending element MUST be a list
+# Concatenate by a list
+
+users += ['Jason']  # caution: concatenating element MUST be a list
 print('users = ', users)
 
 users.extend(['Robert', 'Jimmy'])  # extends by a new list
@@ -44,7 +48,7 @@ print('users = ', users)
 # users.extend(data)  # extends by a predefined list
 # print('users = ', users)
 
-#  inserting values in a list at specified  index
+#  inserting values in a list at specified index
 
 users.insert(0, 'Bob')
 print('users = ', users)
@@ -84,34 +88,43 @@ print('data = ', data)  # []
 
 #  Sorting list
 
+print('-' * 20)
+
+print(f'users = {users}')
+
 users.sort()
-print('users = ', users)
+print(f'users.sort() = {users}')
 
 users[1:2] = ['dave']
 print('users = ', users)
 
 users.sort()
-print('users')
+print('users.sort()', users)
 
 users.sort(key=str.lower)
-print('users = ', users)
+print('users.sort(key=str.lower) = ', users)
+
+print('--------------------')
 
 numbers = [4, 43, 78, 1, 5]
-numbers.reverse()
 print('numbers = ', numbers)
 
+numbers.reverse()  # mirror reversing
+print('numbers.reverse() = ', numbers)
+
 numbers.sort()
-print('numbers = ', numbers)
+print('numbers.sort() = ', numbers)
 
 # numbers.sort(reverse=True)
 # print('numbers = ', numbers)
 
 print(sorted(numbers, reverse=True))
 
+print('--------------------')
 #  copying list
 
 numbers_copy = numbers.copy()
-print(numbers_copy)
+print(f"numbers_copy = {numbers_copy}")
 
 numbers_copy_2 = list(numbers)
 print(numbers_copy_2)
@@ -119,6 +132,7 @@ print(numbers_copy_2)
 numbers_copy_3 = numbers[:]
 print(numbers_copy_3)
 
+print('--------------------')
 #  List constructor and data type
 
 print('type(numbers) = ', type(numbers))
