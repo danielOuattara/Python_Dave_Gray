@@ -1,3 +1,5 @@
+""" Set in Python """
+
 nums = {1, 2, 3, 4}
 nums_2 = set((1, 2, 3, 4))
 
@@ -20,9 +22,8 @@ print('nums = ', nums)  # {False, 1, 2, 3, 4}
 
 print(2 in nums)  # True
 
-#  NOTE: No indexed
-#  cannot refer to an element in the
-#  set with an index position or a key
+#  NOTE: Not indexed, cannot refer to an element in the
+#        set with an index position or a key
 
 
 #  Add a new element
