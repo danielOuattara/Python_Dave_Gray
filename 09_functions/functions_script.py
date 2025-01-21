@@ -1,9 +1,11 @@
-#  -----------  Defining function
+""" Function in Python """
 
+#  -----  Defining function
 
-#  -----------  Naming fun
+#  -----  Naming fun
 
-#  -----------   (00:13) What are functions?
+#  -----  (00:13) What are functions?
+
 
 def hello():
     print('Hello World of Python')
@@ -12,7 +14,7 @@ def hello():
 hello()
 
 
-#  -----------   (01:35) Naming functions
+#  -----  (01:35) Naming functions
 
 def hello_world():
     print('Hello World of Python')
@@ -21,7 +23,7 @@ def hello_world():
 hello_world()
 
 
-#  -----------   (02:20) Parameters vs Arguments
+#  -----  (02:20) Parameters vs Arguments
 
 
 def sum_1(number1, number2):
@@ -33,7 +35,7 @@ sum_1(1, 7)  # 8
 sum_1(100, 3)  # 103
 
 
-#  -----------   (04:28) Return keyword
+#  -----  (04:28) Return keyword
 
 def sum_2(number1, number2):
     return number1 + number2
@@ -44,13 +46,19 @@ print(sum_2(1, 7))  # 8
 print(sum_2(100, 3))  # 103
 
 
-#  -----------   (05:27) Checking Argument types
+#  -----  (05:27) Checking Argument types
 
 def sum_3(number1, number2):
     if type(number1) is not int or type(number2) is not int:
         return
-    else:
-        return number1 + number2
+    return number1 + number2
+
+
+# Better than above
+def sum_3_2(number1, number2):
+    if not isinstance(number1, int) or not isinstance(number2, int):
+        return
+    return number1 + number2
 
 
 print(sum_3('3', 5))  # None
@@ -58,23 +66,22 @@ print(sum_3(1, 7))  # 8
 print(sum_3(100, 3))  # 103
 
 
-#  -----------   (07:25) Default Parameter Values
+#  -----  (07:25) Default Parameter Values
 
 def sum_4(number1=0, number2=0):
-    if type(number1) is not int or type(number2) is not int:
+    if not isinstance(number1, int) or not isinstance(number2, int):
         return
-    else:
-        return number1 + number2
+    return number1 + number2
 
 
-print(sum_4())  # None
+print(sum_4())  # No argument provided
 
-#  -----------   (09:06) Reviewing the Sum Function
+#  -----  (09:06) Reviewing the Sum Function
 
-''' DONE'''
+# DONE
 
 
-#  -----------   (10:16) Receiving an Unknown Number of args
+#  -----  (10:16) Receiving an Unknown Number of args
 
 def multiple_items(*args):
     print(args)
@@ -84,11 +91,12 @@ def multiple_items(*args):
 multiple_items('Dave', 'John', 'Sara', 1, True)
 
 
-#  -----------   (12:26) Receiving an Unknown Number of kwargs
+#  -----  (12:26) Receiving an Unknown Number of kwargs
 
 def multiple_items_2(**kwargs):
     print(kwargs)
     print(type(kwargs))  # <class 'dict'>
 
 
-multiple_items_2(dave='Dave', john='John', sara='Sara', quantity=1, isFather=True)
+multiple_items_2(dave='Dave', john='John', sara='Sara',
+                 quantity=1, isFather=True)
