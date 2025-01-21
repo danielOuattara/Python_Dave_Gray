@@ -1,3 +1,5 @@
+""" Python for loops """
+
 print('----------------------------')
 
 names = ['Dave', 'Sara', 'John']
@@ -47,8 +49,8 @@ print('-----')
 
 for x in range(0, 30, 3):
     print(x)
-else:
-    print('loop completed')
+
+print('loop completed')
 
 print('----------------------------')
 
@@ -61,9 +63,7 @@ for name in names:
     for act in actions:
         print(f"{name} {act}")
 
-
-print('-------')  # flipped
-
+print('-------')  # flipped nested loop
 
 for act in actions:
     for name in names:
